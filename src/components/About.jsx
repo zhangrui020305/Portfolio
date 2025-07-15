@@ -9,7 +9,7 @@ function About() {
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 1.5 }}
+        transition={{ duration: 1.5, delay: 1 }}
         className="my-20 text-4xl text-center"
       >
         About <span className="text-neutral-500">Me</span>

@@ -1,4 +1,6 @@
-# React + Vite
+# It's a portfolio made by React and JavaScript
 
-# npm install
-# npm run dev
+if u want to run this project
+You can try:
+npm install
+npm run dev
