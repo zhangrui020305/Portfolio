@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  font-family: "Inter", sans-serif;
+}
+
+/* 深色模式下的滚动条样式 */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #2c2c2c; /* 深色背景 */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #555; /* 滚动条滑块较浅的颜色 */
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #777; /* 滚动条滑块悬停时较亮的颜色 */
+  }
+
+  /* Firefox 浏览器 */
+  html {
+    scrollbar-width: thin; /* 滚动条宽度 */
+    scrollbar-color: #555 #2c2c2c; /* 滚动条滑块和轨道颜色 */
+  }
+}
