@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { db_content } from './title.entity';
+import { DBcontent } from './title.entity';
 
 @Injectable()
 export class TittleService {
   constructor(
-    @InjectRepository(db_content)
-    private readonly contentRepo: Repository<db_content>,
+    @InjectRepository(DBcontent)
+    private readonly contentRepo: Repository<DBcontent>,
   ) {}
 
   async getContent(): Promise<string> {

@@ -1,12 +1,15 @@
+import { ContactModule } from './contact/contact.module';
 import { TittleModule } from './tittle/tittle.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { db_content } from './tittle/title.entity';
+import { DBcontent } from './tittle/title.entity';
+import { DBContact } from './contact/contact.entity';
 
 @Module({
   imports: [
+    ContactModule,
     TittleModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
@@ -15,8 +18,8 @@ import { db_content } from './tittle/title.entity';
       username: 'root',
       password: 'password',
       database: 'Portfolio',
-      entities: [db_content],
-      synchronize: true,
+      entities: [DBcontent, DBContact],
+      synchronize: false,
     }),
   ],
   controllers: [AppController],
