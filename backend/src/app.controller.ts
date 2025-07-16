@@ -9,4 +9,9 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+  
+  @Get("/getSummary")
+  getSummary(): string {
+    return "it is workable."
+  }
 }
