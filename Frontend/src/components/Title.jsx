@@ -1,7 +1,7 @@
-import React from "react";
-import { HERO_CONTENT } from "../constants";
+import React, { useEffect, useState } from "react";
 import profilePic from "../assets/RuiZhangProfile.png";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import axios from "axios"
 
 // motion animation
 const container = (delay) => ({
@@ -14,6 +14,18 @@ const container = (delay) => ({
 });
 
 function Title() {
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    const baseURL = "http://localhost:3000/title";
+
+    axios
+      .get(`${baseURL}/getContent`)
+      .then((res) => setContent(res.data))
+      .catch((err) => console.error("Error fetching content", err))
+
+  },[])
+
   return (
     <div className="border-neutral-900 pd-4 lg:mb-35">
       <div className="flex flex-wrap">
@@ -41,7 +53,7 @@ function Title() {
               animate="visible"
               className="max-w-xl py-6 my-2 font-light tracking-tighter"
             >
-              {HERO_CONTENT}
+              {content}
             </motion.p>
           </div>
         </div>

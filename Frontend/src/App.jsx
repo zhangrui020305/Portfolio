@@ -16,8 +16,8 @@ const App = () => {
         <div className="container px-8 mx-auto">
           <Navbar />
           <Title />
-          <About />
           <Technologies />
+          <About />
           <Experience />
           <Contact />
         </div>
