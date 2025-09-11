@@ -9,48 +9,65 @@ import { ExperienceService } from './experience.service';
 export class ExperienceController {
   constructor(private readonly experienceService: ExperienceService) {}
 
-  @Get('getYear')
-  async getYear(): Promise<string> {
+  @Get()
+  async getExperience() {
     const experience = await this.experienceService.getExperience();
+
     if ('message' in experience) {
       return experience.message;
     }
-    return experience.year;
+
+    return {
+      year: experience.year,
+      role: experience.role,
+      company: experience.company,
+      description: experience.description,
+      technologies: experience.technologies,
+    };
   }
 
-  @Get('getRole')
-  async getRole(): Promise<string> {
-    const experience = await this.experienceService.getExperience();
-    if ('message' in experience) {
-      return experience.message;
-    }
-    return experience.role;
-  }
+  // @Get('getYear')
+  // async getYear(): Promise<string> {
+  //   const experience = await this.experienceService.getExperience();
+  //   if ('message' in experience) {
+  //     return experience.message;
+  //   }
+  //   return experience.year;
+  // }
 
-  @Get('getCompany')
-  async getCompany(): Promise<string> {
-    const experience = await this.experienceService.getExperience();
-    if ('message' in experience) {
-      return experience.message;
-    }
-    return experience.company;
-  }
+  // @Get('getRole')
+  // async getRole(): Promise<string> {
+  //   const experience = await this.experienceService.getExperience();
+  //   if ('message' in experience) {
+  //     return experience.message;
+  //   }
+  //   return experience.role;
+  // }
 
-  @Get('getDescription')
-  async getDescription(): Promise<string> {
-    const experience = await this.experienceService.getExperience();
-    if ('message' in experience) {
-      return experience.message;
-    }
-    return experience.description;
-  }
+  // @Get('getCompany')
+  // async getCompany(): Promise<string> {
+  //   const experience = await this.experienceService.getExperience();
+  //   if ('message' in experience) {
+  //     return experience.message;
+  //   }
+  //   return experience.company;
+  // }
 
-  @Get('getTechnologies')
-  async getTechnologies(): Promise<string> {
-    const experience = await this.experienceService.getExperience();
-    if ('message' in experience) {
-      return experience.message;
-    }
-    return experience.technologies;
-  }
+  // @Get('getDescription')
+  // async getDescription(): Promise<string> {
+  //   const experience = await this.experienceService.getExperience();
+  //   if ('message' in experience) {
+  //     return experience.message;
+  //   }
+  //   return experience.description;
+  // }
+
+  // @Get('getTechnologies')
+  // async getTechnologies(): Promise<string> {
+  //   const experience = await this.experienceService.getExperience();
+  //   if ('message' in experience) {
+  //     return experience.message;
+  //   }
+  //   return experience.technologies;
+  // }
 }
